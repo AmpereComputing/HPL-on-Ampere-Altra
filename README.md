@@ -1,11 +1,11 @@
 # Building HPL using Ampere Oracle Blis Libraries.
 
 Building HPL with Ampere-Oracle Blis libraries is very easy and should not take a lot of time. It’s a 2-step process:
-Step 1 where we build the Math libraries found on the Ampere branch of Oracle Blis libraries and Step 2 where we build the HPL binaries.
+Step 1: Where we build the Math libraries found on the Ampere branch of Oracle Blis libraries and Step 2 where we build the HPL binaries.
 
 A detailed guide is below: 
 
-Step 1: Prerequisites: 
+## Step 1: Prerequisites: 
 
 To ensure a seamless build process, both the math libraries and the benchmark are built inside the /opt directory.
 
@@ -55,7 +55,7 @@ mpifort --version #(That should bring up the installed gfortran version)
 “sudo apt/yum/dnf install <package_name>”
 ```
 
-Step 2: Building HPL Benchmark
+## Step 2: Building HPL Benchmark
 
 a.	Downloading and Installing HPL 2.3
 
@@ -85,25 +85,28 @@ pushd /opt/hpl-2.3/bin/Altramax_oracleblis
 ```
 
 
-Step 3: Creating the HPL input file
+## Step 3: Creating the HPL input file
+
 Sample HPL.dat file attached
 Copy the attached HPL.dat file to “/opt/hpl-2.3/bin/Altramax_oracleblis “
 
-Step 4: Run the benchmark
+## Step 4: Run the benchmark
 
 ```
 mpirun -np 96 --bind-to core --map-by core ./xhpl &> out.log
 ```
 
-Step 5: Performance Expectations
+## Step 5: Performance Expectations
+
 If your system differs from our testbench, the HPL.dat file will need to be modified (line #6) to match your respective Altra Max config.
+
+
+### Table 1: Showcasing the line which needs to be modified in HPL.dat 	
 
 |Line Number|Value|Description|
 |---|---|---|
 |6|150000|Ns|
 	
-Table 1: Showcasing the line which needs to be modified in HPL.dat 
-
 The value of N when changed to 150K should take approximately 180 gigs of memory and would run on a machine having 256 GB memory. Table2 with differing values of Ns is shown below with our reference numbers.
 
 Our observed Results for AltraMax 128 cores @ 3.0GHz:
@@ -112,8 +115,12 @@ NB=256
 Input Param	
 P=8 Q=16			
 
-Problem Size (Ns)	   Memory Used	Results (Gflops)
-  150K	             177 gig	    1528
-	200k	             312 gig	    1552
-	250k	             480 gig	    1597
-Table 2: Varying sizes on Ns w.r.t available system memory.
+### Table 2: Varying sizes on Ns w.r.t available system memory.
+	
+|Problem Size (Ns)|Memory Used|Results (Gflops)|
+|---|---|---|
+|150K|177 gig|1528|
+|200k|312 gig|1552|
+|250k|480 gig|1597|
+
+
