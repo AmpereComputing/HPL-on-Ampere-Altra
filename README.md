@@ -1,4 +1,4 @@
-Building HPL using Ampere Oracle Blis Libraries.
+# Building HPL using Ampere Oracle Blis Libraries.
 
 Building HPL with Ampere-Oracle Blis libraries is very easy and should not take a lot of time. It’s a 2-step process:
 Step 1 where we build the Math libraries found on the Ampere branch of Oracle Blis libraries and Step 2 where we build the HPL binaries.
@@ -11,47 +11,77 @@ To ensure a seamless build process, both the math libraries and the benchmark ar
 
 
 a.	Downloading and installing Ampere Oracle Blis Libraries:
+
+```
 pushd /opt
 git clone https://github.com/flame/blis.git MyBlisDir
 pushd MyBlisDir
 #Switch to the new ampere branch 
 git checkout ampere
 ./QuickStart.sh altramax
-#Ensure that the test bench contains Ampere Oracle Blis exported to PATH and LD_LIBRARY_PATH appropriately.
+```
+
+* Ensure that the test bench contains Ampere Oracle Blis exported to PATH and LD_LIBRARY_PATH appropriately.
+
+```
 source ./blis_build_altramax.sh
 source blis_setenv.sh
 export LD_LIBRARY_PATH=/opt/MyBlisDir/lib/altramax
 popd
 popd
+```
 
 b.	OpenMPI: Along with Ampere Oracle Blis, we will also need openmpi. We have used openmpi 4.1.4. An installation guide for openmpi can be found inside the tarball: https://download.open-mpi.org/release/open-mpi/v4.1/openmpi-4.1.4.tar.gz 
 
 If OpenMPI is installed in a non-default location. Add the <bin> directory location to PATH and the <lib> directory location to LD_LIBRARY_PATH using the following commands
 
+```
 export PATH=<PATH_TO_OPENMPI_BIN_DIR>:$PATH
 export LD_LIBRARY_PATH=< PATH_TO_OPENMPI_LIB_DIR>:$LD_LIBRARY_PATH
+```
 
-#Ensure successful installation of openmpi by executing the following commands.
+* Ensure successful installation of openmpi by executing the following commands.
+	
+```
 mpirun --version  #(That should bring up the openmpi version. 4.1.4 in this case)
 mpicc --version #(That should bring up the installed gcc version)
 mpic++ --version #(That should bring up the installed g++ version)
 mpifort --version #(That should bring up the installed gfortran version)
+```
+	
+* If any of the above 3 commands do not return the version for gcc/g++/gfortran, install the missing gcc/g++/gfortran for your distro using
 
-#If any of the above 3 commands do not return the version for gcc/g++/gfortran, install the missing gcc/g++/gfortran for your distro using “sudo apt/yum/dnf install <package_name>”
+```
+“sudo apt/yum/dnf install <package_name>”
+```
+
 Step 2: Building HPL Benchmark
 
 a.	Downloading and Installing HPL 2.3
+
+```
 pushd /opt
 wget https://netlib.org/benchmark/hpl/hpl-2.3.tar.gz
 tar -xzf hpl-2.3.tar.gz
 popd
-#Copy the Makefile attached with this document to /opt/hpl-2.3 folder.
-cp Make.Altramax_oracleblis /opt/hpl-2.3
-#Compile the HPL binary
-make arch=Altramax_oracleblis -j
-#Upon success, a bin folder will be created. This folder should contain 2 files xhpl (which is the HPL #binary) and HPL.dat (which is the standard input file).
-pushd /opt/hpl-2.3/bin/Altramax_oracleblis 
+```
+	
+* Copy the Makefile attached with this document to /opt/hpl-2.3 folder.
 
+```
+cp Make.Altramax_oracleblis /opt/hpl-2.3
+
+* Compile the HPL binary
+
+```
+make arch=Altramax_oracleblis -j
+```
+
+* Upon success, a bin folder will be created. This folder should contain 2 files xhpl (which is the HPL #binary) and HPL.dat (which is the standard input file).
+
+```
+pushd /opt/hpl-2.3/bin/Altramax_oracleblis 
+```
 
 
 Step 3: Creating the HPL input file
@@ -59,8 +89,10 @@ Sample HPL.dat file attached
 Copy the attached HPL.dat file to “/opt/hpl-2.3/bin/Altramax_oracleblis “
 
 Step 4: Run the benchmark
-mpirun -np 96 --bind-to core --map-by core ./xhpl &> out.log
 
+```
+mpirun -np 96 --bind-to core --map-by core ./xhpl &> out.log
+```
 
 Step 5: Performance Expectations
 If your system differs from our testbench, the HPL.dat file will need to be modified (line #6) to match your respective Altra Max config.
