@@ -70,6 +70,7 @@ popd
 
 ```
 cp Make.Altramax_oracleblis /opt/hpl-2.3
+```
 
 * Compile the HPL binary
 
