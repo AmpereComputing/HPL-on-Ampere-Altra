@@ -98,8 +98,10 @@ mpirun -np 96 --bind-to core --map-by core ./xhpl &> out.log
 Step 5: Performance Expectations
 If your system differs from our testbench, the HPL.dat file will need to be modified (line #6) to match your respective Altra Max config.
 
-Line Number	Value	  Description
-6	          150000	Ns
+|Line Number|Value|Description|
+|---|---|---|
+|6|150000|Ns|
+	
 Table 1: Showcasing the line which needs to be modified in HPL.dat 
 
 The value of N when changed to 150K should take approximately 180 gigs of memory and would run on a machine having 256 GB memory. Table2 with differing values of Ns is shown below with our reference numbers.
