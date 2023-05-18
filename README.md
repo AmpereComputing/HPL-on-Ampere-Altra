@@ -15,7 +15,7 @@ GCC : 12.2.0
 
 Kernel : 5.4.0-148-generic
 
-To ensure a seamless build process, both the math libraries and the benchmark are built inside the /opt directory.
+To ensure a seamless build process, both, the math libraries and the benchmark are built inside the /opt directory.
 
 
 a.	Downloading and installing Ampere Oracle Blis Libraries:
