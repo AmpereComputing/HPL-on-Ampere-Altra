@@ -132,7 +132,7 @@ Our observed Results for AltraMax 96 cores @ 2.8GHz:
 	
 |Problem Size (Ns)|Memory Used|Results (Gflops)|
 |---|---|---|
-|70K|60 gig|800|
-|115k|120 gig|890|
+|70K|46 gig|1151|
+
 
 
