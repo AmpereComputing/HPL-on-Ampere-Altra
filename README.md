@@ -86,7 +86,7 @@ cp Make.Altramax_oracleblis /opt/hpl-2.3
 make arch=Altramax_oracleblis -j
 ```
 
-* Upon success, a bin folder will be created. This folder should contain 2 files xhpl (which is the HPL #binary) and HPL.dat (which is the standard input file).
+* Upon success, a bin folder will be created. This folder should contain 2 files: xhpl (which is the HPL #binary) and HPL.dat (which is the standard input file).
 
 ```
 pushd /opt/hpl-2.3/bin/Altramax_oracleblis 
@@ -122,16 +122,6 @@ The value of N when changed to 150K should take approximately 180 gigs of memory
 
 
 ### Table 2: Varying sizes on Ns w.r.t available system memory.
-Our observed Results for AltraMax 128 cores @ 3.0GHz:
-|Input Param|Input Param|
-|---|---|	
-|NB=256|P=8 Q=16|
-	
-|Problem Size (Ns)|Memory Used|Results (Gflops)|
-|---|---|---|
-|150K|177 gig|1528|
-|200k|312 gig|1552|
-|250k|480 gig|1597|
 
 Our observed Results for AltraMax 96 cores @ 2.8GHz:
 |Input Param|Input Param|
@@ -143,4 +133,16 @@ Our observed Results for AltraMax 96 cores @ 2.8GHz:
 |70K|46 gig|1151|
 |100K|83 gig|1250|
 |105K|91 gig|1253|
+	
+Our observed Results for AltraMax 128 cores @ 3.0GHz:
+|Input Param|Input Param|
+|---|---|	
+|NB=256|P=8 Q=16|
+	
+|Problem Size (Ns)|Memory Used|Results (Gflops)|
+|---|---|---|
+|150K|177 gig|1528|
+|200k|312 gig|1552|
+|250k|480 gig|1597|
+
 
