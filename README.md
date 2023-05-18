@@ -7,6 +7,11 @@ A detailed guide is below:
 
 ## Step 1: Prerequisites: 
 
+System Config :
+OS : Ubuntu 20.04
+GCC : 12.2.0
+Kernel : 5.4.0-148-generic
+
 To ensure a seamless build process, both the math libraries and the benchmark are built inside the /opt directory.
 
 
@@ -133,6 +138,6 @@ Our observed Results for AltraMax 96 cores @ 2.8GHz:
 |Problem Size (Ns)|Memory Used|Results (Gflops)|
 |---|---|---|
 |70K|46 gig|1151|
-
-
+|100K|83 gig|1250|
+|105K|91 gig|1253|
 
