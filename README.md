@@ -87,8 +87,11 @@ pushd /opt/hpl-2.3/bin/Altramax_oracleblis
 
 ## Step 3: Creating the HPL input file
 
-Sample HPL.dat file attached
+Sample HPL.dat file attached. 
+
 Copy the attached HPL.dat file to “/opt/hpl-2.3/bin/Altramax_oracleblis “
+
+Please note that this HPL.dat file is designed to run on 96 cores at 64 GB RAM. If you have access to more RAM please refer to Step 5 on how to maximise the values for Ns
 
 ## Step 4: Run the benchmark
 
@@ -109,18 +112,27 @@ If your system differs from our testbench, the HPL.dat file will need to be modi
 	
 The value of N when changed to 150K should take approximately 180 gigs of memory and would run on a machine having 256 GB memory. Table2 with differing values of Ns is shown below with our reference numbers.
 
-Our observed Results for AltraMax 128 cores @ 3.0GHz:
-Input Param	
-NB=256	    
-Input Param	
-P=8 Q=16			
 
 ### Table 2: Varying sizes on Ns w.r.t available system memory.
+Our observed Results for AltraMax 128 cores @ 3.0GHz:
+|Input Param|Input Param|
+|---|---|	
+|NB=256|P=8 Q=16|
 	
 |Problem Size (Ns)|Memory Used|Results (Gflops)|
 |---|---|---|
 |150K|177 gig|1528|
 |200k|312 gig|1552|
 |250k|480 gig|1597|
+
+Our observed Results for AltraMax 96 cores @ 2.8GHz:
+|Input Param|Input Param|
+|---|---|	
+|NB=256|P=8 Q=12|
+	
+|Problem Size (Ns)|Memory Used|Results (Gflops)|
+|---|---|---|
+|70K|60 gig|800|
+|115k|120 gig|890|
 
 
