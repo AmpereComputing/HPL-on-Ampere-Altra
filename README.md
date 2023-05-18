@@ -9,7 +9,9 @@ A detailed guide is below:
 
 System Config :
 OS : Ubuntu 20.04
+
 GCC : 12.2.0
+
 Kernel : 5.4.0-148-generic
 
 To ensure a seamless build process, both the math libraries and the benchmark are built inside the /opt directory.
