@@ -8,6 +8,7 @@ A detailed guide is below:
 ## Step 1: Prerequisites: 
 
 System Config :
+
 OS : Ubuntu 20.04
 
 GCC : 12.2.0
