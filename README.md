@@ -1,14 +1,14 @@
-# HPL.
+# HPL
 HPL is a software package that solves a (random) dense linear system in double precision (64 bits) arithmetic on distributed-memory computers. It can thus be regarded as a portable as well as freely available implementation of the High Performance Computing Linpack Benchmark.
 
 The algorithm used by HPL can be summarized by the following keywords: Two-dimensional block-cyclic data distribution – Right-looking variant of the LU factorization with row partial pivoting featuring multiple look-ahead depths – Recursive panel factorization with pivot search and column broadcast combined – Various virtual panel broadcast topologies – bandwidth reducing swap-broadcast algorithm – backward substitution with look-ahead of depth 1.
 
 Official website for HPL : https://www.netlib.org/benchmark/hpl/
 
-# Building HPL using Ampere Oracle Blis Libraries.
+# Building HPL using Ampere Oracle BLIS Libraries.
 
-Building HPL with Ampere-Oracle Blis libraries is very easy and should not take a lot of time. It’s a 2-step process:
-Step 1: Where we build the Math libraries found on the Ampere branch of Oracle Blis libraries and Step 2 where we build the HPL binaries.
+Building HPL with Ampere-Oracle BLIS libraries is very easy and should not take a lot of time. It’s a 2-step process:
+Step 1: Where we build the Math libraries found on the Ampere branch of Oracle BLIS libraries and Step 2 where we build the HPL binaries.
 
 A detailed guide is below: 
 
@@ -25,7 +25,7 @@ Kernel : 5.4.0-148-generic
 To ensure a seamless build process, both, the math libraries and the benchmark are built inside the /opt directory.
 
 
-a.	Downloading and installing Ampere Oracle Blis Libraries:
+a.	Downloading and installing Ampere Oracle BLIS Libraries:
 
 ```
 pushd /opt
@@ -36,7 +36,7 @@ git checkout ampere
 ./QuickStart.sh altramax
 ```
 
-* Ensure that the test bench contains Ampere Oracle Blis exported to PATH and LD_LIBRARY_PATH appropriately.
+* Ensure that the test bench contains Ampere Oracle BLIS exported to PATH and LD_LIBRARY_PATH appropriately.
 
 ```
 source ./blis_build_altramax.sh
@@ -46,7 +46,7 @@ popd
 popd
 ```
 
-b.	OpenMPI: Along with Ampere Oracle Blis, we will also need openmpi. We have used openmpi 4.1.4. An installation guide for openmpi can be found inside the tarball: https://download.open-mpi.org/release/open-mpi/v4.1/openmpi-4.1.4.tar.gz 
+b.	OpenMPI: Along with Ampere Oracle BLIS, we will also need openmpi. We have used openmpi 4.1.4. An installation guide for openmpi can be found inside the tarball: https://download.open-mpi.org/release/open-mpi/v4.1/openmpi-4.1.4.tar.gz 
 
 If OpenMPI is installed in a non-default location. Add the <bin> directory location to PATH and the <lib> directory location to LD_LIBRARY_PATH using the following commands
 
