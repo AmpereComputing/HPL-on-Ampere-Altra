@@ -1,3 +1,10 @@
+# HPL.
+HPL is a software package that solves a (random) dense linear system in double precision (64 bits) arithmetic on distributed-memory computers. It can thus be regarded as a portable as well as freely available implementation of the High Performance Computing Linpack Benchmark.
+
+The algorithm used by HPL can be summarized by the following keywords: Two-dimensional block-cyclic data distribution – Right-looking variant of the LU factorization with row partial pivoting featuring multiple look-ahead depths – Recursive panel factorization with pivot search and column broadcast combined – Various virtual panel broadcast topologies – bandwidth reducing swap-broadcast algorithm – backward substitution with look-ahead of depth 1.
+
+Official website for HPL : https://www.netlib.org/benchmark/hpl/
+
 # Building HPL using Ampere Oracle Blis Libraries.
 
 Building HPL with Ampere-Oracle Blis libraries is very easy and should not take a lot of time. It’s a 2-step process:
