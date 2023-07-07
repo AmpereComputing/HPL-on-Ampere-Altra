@@ -22,6 +22,8 @@ GCC : 12.2.0
 
 Kernel : 5.4.0-148-generic
 
+Also, it's a good idea if running Ubuntu to do a  ```sudo apt install build-essential```  and take care of some basic dependencies.
+
 To ensure a seamless build process, both, the math libraries and the benchmark are built inside the /opt directory.
 
 
