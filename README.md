@@ -83,10 +83,10 @@ tar -xzf hpl-2.3.tar.gz
 popd
 ```
 	
-* Copy the Makefile attached with this document to /opt/hpl-2.3 folder.
+* Copy the Makefile from this repository into the `/opt/hpl-2.3` folder.
 
 ```
-cp Make.Altramax_oracleblis /opt/hpl-2.3
+wget -P /opt/hpl-2.3 https://raw.githubusercontent.com/AmpereComputing/HPL-on-Ampere-Altra/main/Make.Altramax_oracleblis
 ```
 
 * Compile the HPL binary
@@ -104,9 +104,12 @@ pushd /opt/hpl-2.3/bin/Altramax_oracleblis
 
 ## Step 3: Creating the HPL input file
 
-Sample HPL.dat file attached. 
+Copy the HPL.dat file from this repository into `/opt/hpl-2.3/bin/Altramax_oracleblis`:
 
-Copy the attached HPL.dat file to “/opt/hpl-2.3/bin/Altramax_oracleblis “
+```
+rm -f /opt/hpl-2.3/bin/Altramax_oracleblis/HPL.dat
+wget -P /opt/hpl-2.3/bin/Altramax_oracleblis https://raw.githubusercontent.com/AmpereComputing/HPL-on-Ampere-Altra/main/HPL.dat
+```
 
 Please note that this HPL.dat file is designed to run on 96 cores at 64 GB RAM. If you have access to more RAM please refer to Step 5 on how to maximise the values for Ns
 
