@@ -48,7 +48,19 @@ popd
 popd
 ```
 
-b.	OpenMPI: Along with Ampere Oracle BLIS, we will also need openmpi. We have used openmpi 4.1.4. An installation guide for openmpi can be found inside the tarball: https://download.open-mpi.org/release/open-mpi/v4.1/openmpi-4.1.4.tar.gz 
+b.	OpenMPI: Along with Ampere Oracle BLIS, we will also need openmpi. We have used openmpi 4.1.4. Install it in the default path:
+
+```
+popd /opt
+wget https://download.open-mpi.org/release/open-mpi/v4.1/openmpi-4.1.4.tar.gz
+tar -xvf openmpi-4.1.4.tar.gz
+cd openmpi-4.1.4
+sudo apt install -y gfortran
+./configure
+make all install
+export PATH=/usr/local/bin:$PATH
+export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
+``` 
 
 If OpenMPI is installed in a non-default location. Add the <bin> directory location to PATH and the <lib> directory location to LD_LIBRARY_PATH using the following commands
 
