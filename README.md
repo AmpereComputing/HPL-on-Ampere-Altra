@@ -43,7 +43,7 @@ git checkout ampere
 ```
 source ./blis_build_altramax.sh
 source blis_setenv.sh
-export LD_LIBRARY_PATH=/opt/MyBlisDir/lib/altramax
+export LD_LIBRARY_PATH=/usr/local/lib:/opt/MyBlisDir/lib/altramax:$LD_LIBRARY_PATH
 popd
 popd
 ```
